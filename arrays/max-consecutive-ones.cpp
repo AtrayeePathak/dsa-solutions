@@ -4,6 +4,7 @@ using namespace std;
 
 class Solution {
 public:
+    // Returns the longest run of consecutive ones in the array.
     int consecutiveOnes(vector<int>& arr) {
         int current = 0;
         int best = 0;

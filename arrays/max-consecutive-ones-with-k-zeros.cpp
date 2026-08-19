@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution { 
 public:
     int longestOnesWithKZeros(const vector<int>& nums, int k) {
         int l = 0;

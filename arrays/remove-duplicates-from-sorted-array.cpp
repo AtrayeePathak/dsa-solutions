@@ -1,38 +1,53 @@
 // Problem: Remove Duplicates from Sorted Array
 // Difficulty: Easy
 // Topic: Arrays
-// Approach: Use two pointers to keep unique elements in-place and return the new length
+// Approach: Keep the first occurrence of each value in the sorted array
 
 #include <iostream>
 #include <vector>
 using namespace std;
 
 class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        int n = nums.size();
-        int l = 1;
+  public:
+    vector<int> removeDuplicates(vector<int> &arr) {
+        vector<int>res;
+        int officer =0;
+             
+             int cm=1;
+             int n=arr.size();
+             res.push_back(arr[0]);
+             while(cm<n){
+                 if(arr[cm]==arr[cm-1]){
+                     cm++;
+                     continue;
+                 }
+                else{
+                 arr[officer +1]=arr[cm];
+                 officer++;
+                 res.push_back(arr[cm]);
+                 cm++;
+                }
+             }
 
-        for (int r = 1; r < n; r++) {
-            if (nums[r] != nums[r - 1]) {
-                nums[l] = nums[r];
-                l++;
-            }
-        }
-        return l;
+             return res;
+        
     }
 };
 
 int main() {
+    int n;
+    cin >> n;
+
+    vector<int> arr(n);
+    for (int& value : arr) {
+        cin >> value;
+    }
+
     Solution sol;
-    vector<int> nums = {1, 1, 2, 2, 3, 3, 4};
+    vector<int> result = sol.removeDuplicates(arr);
 
-    int newLength = sol.removeDuplicates(nums);
-
-    cout << "New length: " << newLength << '\n';
-    cout << "Modified array: ";
-    for (int i = 0; i < newLength; ++i) {
-        cout << nums[i] << " ";
+    for (int value : result) {
+        cout << value << " ";
     }
     cout << '\n';
 

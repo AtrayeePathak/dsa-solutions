@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 class Solution {
 public:
 
@@ -34,3 +39,10 @@ return ans;
     }
   
 };
+
+int main() {
+    Solution sol;
+    vector<int> nums = {1, -3, 2, 3, -4};
+    cout << "Max Absolute Sum: " << sol.maxAbsoluteSum(nums) << endl;
+    return 0;
+}
